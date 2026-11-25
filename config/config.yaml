@@ -1,0 +1,13 @@
+project:
+  name: pysebal-et-ndvi-pipeline
+  study_area: "Example Study Area"
+
+paths:
+  pysebal_lib: "C:/Users/PC/PySEBAL_dev"
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  outputs: "data/outputs"
+
+dates:
+  start_date: "2022-01-01"
+  end_date: "2022-01-31"
