@@ -95,3 +95,7 @@ Generated rasters are written locally under `data/outputs/pysebal_run/` (ignored
 | `NDVI` | `2019-05` / `2019-MAM` | `-0.4769` | `0.3256` | `0.8051` |
 | `NDVI` | `2019-07` / `2019-JJA` | `-0.6415` | `0.2260` | `0.8537` |
 | `NDVI` | `2019` Annual Mean | `-0.4861` | `0.2592` | `0.8240` |
+
+## Environment & Dependencies
+- Install core Python dependencies via `pip install -r requirements.txt` (including `matplotlib` for `src/05_plot_comparison.py`).
+- On Windows with Anaconda, install `gdal` and `rasterio` from `conda-forge` inside your dedicated environment (`pysebal_env`), and prepend `<env>\Library\bin` to `PATH` / DLL search path if external GIS software (such as QGIS) is installed.

@@ -1,0 +1,8 @@
+numpy==1.26.4
+pyproj
+openpyxl
+pyyaml
+matplotlib
+# Geospatial stack (install via conda-forge in Windows Anaconda environments):
+# gdal==3.8.5
+# rasterio==1.3.10
