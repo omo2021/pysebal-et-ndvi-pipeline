@@ -67,8 +67,23 @@ def main():
         "NDVI", "index", "RdYlGn", -0.2, 0.8,
         out_base / "scene_20190524" / "Output_vegetation" / "L8_NDVI_30m_2019_05_24_144.tif",
         out_base / "scene_20190727" / "Output_vegetation" / "L8_NDVI_30m_2019_07_27_208.tif",
+        out_base / "scene_20190727" / "Output_vegetation" / "L8_NDVI_30m_2019_07_27_208.tif",
         fig_dir / "ndvi_may_vs_jul_2019.png",
     )
+    make_pair_plot(
+        "Crop Coefficient (kc)", "ratio", "YlGn", 0.0, 1.5,
+        out_base / "scene_20190524" / "Output_evapotranspiration" / "L8_kc_30m_2019_05_24_144.tif",
+        out_base / "scene_20190727" / "Output_evapotranspiration" / "L8_kc_30m_2019_07_27_208.tif",
+        fig_dir / "kc_may_vs_jul_2019.png",
+    )
+    make_pair_plot(
+        "Daily Biomass Production", "kg/ha/day", "YlGn", 0.0, 150.0,
+        out_base / "scene_20190524" / "Output_biomass_production" / "L8_Biomass_production_30m_2019_05_24_144.tif",
+        out_base / "scene_20190727" / "Output_biomass_production" / "L8_Biomass_production_30m_2019_07_27_208.tif",
+        fig_dir / "biomass_production_may_vs_jul_2019.png",
+    )
+
+
 
 if __name__ == "__main__":
     main()

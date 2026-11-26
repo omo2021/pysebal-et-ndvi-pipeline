@@ -146,6 +146,8 @@ def main():
     rows = []
     process_var("ETact_24", "ETact_24", search_root, out_root, seasons, rows)
     process_var("NDVI", "NDVI", search_root, out_root, seasons, rows)
+    process_var("kc", "kc_30m", search_root, out_root, seasons, rows)
+    process_var("Biomass_production", "Biomass_production_30m", search_root, out_root, seasons, rows)
     out_root.mkdir(parents=True, exist_ok=True)
     csv_p = out_root / "postprocessing_summary.csv"
     with open(csv_p, "w", newline="", encoding="utf-8") as f:
