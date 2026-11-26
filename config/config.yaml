@@ -10,7 +10,7 @@ paths:
 
 pysebal:
   dem_path: "data/raw/srtm_30m.tif"
-  image_name: "LC08_L1TP_168034_20190524_20200828_02_T1"
+  image_name: "LC08_L1TP_168034_20190727_20200827_02_T1"
   landsat_number: 8
   image_type: 1
 

@@ -71,3 +71,15 @@ Generated rasters are written locally under `data/outputs/pysebal_run/` (ignored
 | :--- | :--- | :--- | :--- | :--- |
 | `L8_ETact_24_30m_2019_05_24_144.tif` | Daily Actual ET (`mm/day`) | `0.000` | `3.591` | `10.139` |
 | `L8_NDVI_30m_2019_05_24_144.tif` | NDVI | `-0.477` | `0.326` | `0.805` |
+
+## Post-Processing & Multi-Scene Comparison (`2019-05-24` & `2019-07-27`)
+- `src/04_postprocess_et_ndvi.py` — Performs temporal and spatial gap-filling and aggregates rasters into monthly, seasonal, and annual composites plus `data/outputs/postprocessed/postprocessing_summary.csv`.
+
+| Variable | Period / Composite | Min | Mean | Max |
+| :--- | :--- | :--- | :--- | :--- |
+| `ETact_24` | `2019-05` / `2019-MAM` (`mm/day`) | `0.0000` | `3.5711` | `10.1395` |
+| `ETact_24` | `2019-07` / `2019-JJA` (`mm/day`) | `0.0000` | `2.2991` | `8.8687` |
+| `ETact_24` | `2019` Annual Mean (`mm/day`) | `0.0000` | `2.7231` | `8.8687` |
+| `NDVI` | `2019-05` / `2019-MAM` | `-0.4769` | `0.3256` | `0.8051` |
+| `NDVI` | `2019-07` / `2019-JJA` | `-0.6415` | `0.2260` | `0.8537` |
+| `NDVI` | `2019` Annual Mean | `-0.4861` | `0.2592` | `0.8240` |
