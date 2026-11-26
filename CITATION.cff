@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software or workflow in your research, please cite it using the metadata below."
+type: software
+title: "PySEBAL Evapotranspiration and NDVI Pipeline"
+version: "1.0.0"
+date-released: "2026-11-26"
+authors:
+  - family-names: "Mohamed"
+    given-names: "Omar"
+    alias: "omo2021"
+repository-code: "https://github.com/omo2021/pysebal-et-ndvi-pipeline"
+url: "https://github.com/omo2021/pysebal-et-ndvi-pipeline"
+abstract: "Reproducible Python pipeline integrating Landsat 8, SRTM DEM, GLDAS meteorological data, and soil moisture rasters with PySEBAL to compute actual evapotranspiration (ETact_24), NDVI, crop coefficient (kc), and daily biomass production."
+keywords:
+  - pysebal
+  - evapotranspiration
+  - ndvi
+  - landsat
+  - remote-sensing
+  - hydrology
+  - gldas
+  - soil-moisture
+license: MIT

@@ -130,3 +130,18 @@ Generated rasters are written locally under `data/outputs/pysebal_run/` (ignored
 ![NDVI Comparison (2019)](docs/figures/ndvi_may_vs_jul_2019.png)
 ![Crop Coefficient kc Comparison (2019)](docs/figures/kc_may_vs_jul_2019.png)
 ![Daily Biomass Production Comparison (2019)](docs/figures/biomass_production_may_vs_jul_2019.png)
+
+## Author & Citation
+- **Author:** Omar Mohamed ([@omo2021](https://github.com/omo2021))
+- **License:** MIT (see [`LICENSE`](LICENSE))
+
+If you use this repository or workflow in your research, please cite:
+
+```bibtex
+@software{Mohamed_PySEBAL_Pipeline_2026,
+  author = {Mohamed, Omar},
+  title = {{PySEBAL Evapotranspiration and NDVI Pipeline}},
+  year = {2026},
+  version = {1.0.0},
+  url = {[https://github.com/omo2021/pysebal-et-ndvi-pipeline](https://github.com/omo2021/pysebal-et-ndvi-pipeline)}
+}
