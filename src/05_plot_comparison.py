@@ -62,9 +62,9 @@ def make_pair_plot(
 
     fig.suptitle(f"{title} Comparison (2019)", fontsize=13)
     out_png.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(str(out_png), dpi=180)
+    fig.savefig(str(out_png), dpi=160)
     plt.close(fig)
-    print(f"Saved figure: {out_png}")
+    print(f"Saved preview figure: {out_png}")
 
 
 def main() -> None:
@@ -72,7 +72,7 @@ def main() -> None:
     ap.add_argument("--config", default="config/config.yaml")
     cfg = yaml.safe_load(Path(ap.parse_args().config).read_text(encoding="utf-8")) or {}
     out_base = Path(cfg.get("paths", {}).get("outputs", "data/outputs"))
-    fig_dir = out_base / "postprocessed" / "figures"
+    fig_dir = Path("docs/figures")
     fig_dir.mkdir(parents=True, exist_ok=True)
 
     pairs = [
