@@ -125,6 +125,14 @@ Generated rasters are written locally under `data/outputs/pysebal_run/` (ignored
 | `Biomass_production` | `2019-07` / `2019-JJA` (`kg/ha/day`) | `-1.0715` | `33.0789` | `227.9762` |
 | `Biomass_production` | `2019` Annual Mean (`kg/ha/day`) | `-0.9402` | `45.7867` | `196.8079` |
 
+### Study Area: Miandoab Irrigation Scheme & Lake Urmia Basin
+The workflow covers Landsat 8 path/row `168034` (`WGS 84 / UTM zone 38N`, 30 m) encompassing the **Miandoab Irrigation Scheme** in the **Lake Urmia** basin, where irrigated agriculture and water allocation are closely tied to basin water stress and the long-term shrinking of Lake Urmia. Comparing May (`2019-05-24`, DOY 144) and July (`2019-07-27`, DOY 208) illustrates seasonal shifts in crop water consumption (`ETact_24`), crop coefficient (`kc`), greenness (`NDVI`), and daily biomass production across irrigated and surrounding landscapes.
+
+### May vs. July 2019 Comparison Figures
+![Actual ET Comparison (2019)](docs/figures/etact_24_may_vs_jul_2019.png)
+![NDVI Comparison (2019)](docs/figures/ndvi_may_vs_jul_2019.png)
+![Crop Coefficient kc Comparison (2019)](docs/figures/kc_may_vs_jul_2019.png)
+![Daily Biomass Production Comparison (2019)](docs/figures/biomass_production_may_vs_jul_2019.png)
 ### May vs. July 2019 Comparison Figures
 ![Actual ET Comparison (2019)](docs/figures/etact_24_may_vs_jul_2019.png)
 ![NDVI Comparison (2019)](docs/figures/ndvi_may_vs_jul_2019.png)
