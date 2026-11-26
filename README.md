@@ -112,3 +112,15 @@ Generated rasters are written locally under `data/outputs/pysebal_run/` (ignored
 | `NDVI` | `2019-05` / `2019-MAM` | `-0.4769` | `0.3256` | `0.8051` |
 | `NDVI` | `2019-07` / `2019-JJA` | `-0.6415` | `0.2260` | `0.8537` |
 | `NDVI` | `2019` Annual Mean | `-0.4628` | `0.2924` | `0.8099` |
+
+## Crop Coefficient (`kc`) & Daily Biomass Production (`2019-05-24` & `2019-07-27`)
+- Extended `src/04_postprocess_et_ndvi.py` and `src/05_plot_comparison.py` to generate monthly, seasonal, and annual composites plus May vs. July comparison figures (`kc_may_vs_jul_2019.png` and `biomass_production_may_vs_jul_2019.png`).
+
+| Variable | Period / Composite | Min | Mean | Max |
+| :--- | :--- | :--- | :--- | :--- |
+| `kc` | `2019-05` / `2019-MAM` (`ratio`) | `0.0000` | `0.3341` | `1.8547` |
+| `kc` | `2019-07` / `2019-JJA` (`ratio`) | `0.0000` | `0.2827` | `1.7950` |
+| `kc` | `2019` Annual Mean (`ratio`) | `0.0000` | `0.3170` | `1.7767` |
+| `Biomass_production` | `2019-05` / `2019-MAM` (`kg/ha/day`) | `-1.0296` | `52.1406` | `193.9844` |
+| `Biomass_production` | `2019-07` / `2019-JJA` (`kg/ha/day`) | `-1.0715` | `33.0789` | `227.9762` |
+| `Biomass_production` | `2019` Annual Mean (`kg/ha/day`) | `-0.9402` | `45.7867` | `196.8079` |
