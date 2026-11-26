@@ -70,19 +70,34 @@ def main():
         out_base / "scene_20190727" / "Output_vegetation" / "L8_NDVI_30m_2019_07_27_208.tif",
         fig_dir / "ndvi_may_vs_jul_2019.png",
     )
-    make_pair_plot(
-        "Crop Coefficient (kc)", "ratio", "YlGn", 0.0, 1.5,
-        out_base / "scene_20190524" / "Output_evapotranspiration" / "L8_kc_30m_2019_05_24_144.tif",
-        out_base / "scene_20190727" / "Output_evapotranspiration" / "L8_kc_30m_2019_07_27_208.tif",
-        fig_dir / "kc_may_vs_jul_2019.png",
-    )
-    make_pair_plot(
-        "Daily Biomass Production", "kg/ha/day", "YlGn", 0.0, 150.0,
-        out_base / "scene_20190524" / "Output_biomass_production" / "L8_Biomass_production_30m_2019_05_24_144.tif",
-        out_base / "scene_20190727" / "Output_biomass_production" / "L8_Biomass_production_30m_2019_07_27_208.tif",
-        fig_dir / "biomass_production_may_vs_jul_2019.png",
-    )
 
+    kc_may = out_base / "scene_20190524" / "Output_evapotranspiration" / "L8_kc_30m_2019_05_24_144.tif"
+    kc_jul = out_base / "scene_20190727" / "Output_evapotranspiration" / "L8_kc_30m_2019_07_27_208.tif"
+    if kc_may.exists() and kc_jul.exists():
+        make_pair_plot(
+            "Crop Coefficient (kc)",
+            "ratio",
+            "YlGn",
+            0.0,
+            1.5,
+            kc_may,
+            kc_jul,
+            fig_dir / "kc_may_vs_jul_2019.png",
+        )
+
+    bio_may = out_base / "scene_20190524" / "Output_biomass_production" / "L8_Biomass_production_30m_2019_05_24_144.tif"
+    bio_jul = out_base / "scene_20190727" / "Output_biomass_production" / "L8_Biomass_production_30m_2019_07_27_208.tif"
+    if bio_may.exists() and bio_jul.exists():
+        make_pair_plot(
+            "Daily Biomass Production",
+            "kg/ha/day",
+            "YlGn",
+            0.0,
+            150.0,
+            bio_may,
+            bio_jul,
+            fig_dir / "biomass_production_may_vs_jul_2019.png",
+        )
 
 
 if __name__ == "__main__":
