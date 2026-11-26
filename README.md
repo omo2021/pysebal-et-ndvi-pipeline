@@ -99,3 +99,16 @@ Generated rasters are written locally under `data/outputs/pysebal_run/` (ignored
 ## Environment & Dependencies
 - Install core Python dependencies via `pip install -r requirements.txt` (including `matplotlib` for `src/05_plot_comparison.py`).
 - On Windows with Anaconda, install `gdal` and `rasterio` from `conda-forge` inside your dedicated environment (`pysebal_env`), and prepend `<env>\Library\bin` to `PATH` / DLL search path if external GIS software (such as QGIS) is installed.
+
+## Meteo & Soil Moisture Alignment + Updated Two-Scene Results (`2019-05-24` & `2019-07-27`)
+- `src/02_align_inputs.py` — Warps and resamples coarse WGS 84 GLDAS meteorological (`Tair`, `Rh`, `Wind`, `SWdown`) and soil moisture (`wcsat`, `wcres`, `wcpf2`, `wcpf4.2`) GeoTIFFs into `data/processed/aligned/` on the projected Landsat grid (`WGS 84 / UTM zone 38N`), wired per scene via `config/config.yaml` and `src/03_prepare_pysebal_run.py`.
+
+| Variable | Period / Composite | Min | Mean | Max |
+| :--- | :--- | :--- | :--- | :--- |
+| `ETact_24` | `2019-05` / `2019-MAM` (`mm/day`) | `0.0000` | `2.4318` | `11.8210` |
+| `ETact_24` | `2019-07` / `2019-JJA` (`mm/day`) | `0.0000` | `2.0250` | `12.0659` |
+| `ETact_24` | `2019` Annual Mean (`mm/day`) | `0.0000` | `2.2962` | `11.5284` |
+| `ETact_24` | `2019` Annual Est. 365d (`mm/yr`) | `0.0000` | `838.1013` | `4207.8745` |
+| `NDVI` | `2019-05` / `2019-MAM` | `-0.4769` | `0.3256` | `0.8051` |
+| `NDVI` | `2019-07` / `2019-JJA` | `-0.6415` | `0.2260` | `0.8537` |
+| `NDVI` | `2019` Annual Mean | `-0.4628` | `0.2924` | `0.8099` |
