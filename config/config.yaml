@@ -1,19 +1,59 @@
 project:
   name: pysebal-et-ndvi-pipeline
-  study_area: "Example Study Area"
-
+  study_area: Example Study Area
 paths:
-  pysebal_lib: "C:/Users/PC/PySEBAL_dev"
-  raw_data: "data/raw"
-  processed_data: "data/processed"
-  outputs: "data/outputs"
-
+  pysebal_lib: C:/Users/PC/PySEBAL_dev
+  raw_data: data/raw
+  processed_data: data/processed
+  outputs: data/outputs
 pysebal:
-  dem_path: "data/raw/srtm_30m.tif"
-  image_name: "LC08_L1TP_168034_20190727_20200827_02_T1"
+  dem_path: data/raw/srtm_30m.tif
+  image_name: LC08_L1TP_168034_20190524_20200828_02_T1
   landsat_number: 8
   image_type: 1
-
 dates:
-  start_date: "2019-05-01"
-  end_date: "2019-07-31"
+  start_date: '2019-05-01'
+  end_date: '2019-07-31'
+meteo:
+  Temp_Inst: 25.8
+  Temp_24: 20.93
+  RH_inst: 44
+  RH_24: 70.22
+  zx: 2
+  Wind_inst: 0.3
+  Wind_24: 0.38
+  Method_radiation: 1
+  Rs_24: 310
+  Transm_24: 0.7
+  Method_radiation_inst: 1
+  Rs_in_inst_cloud_free: 569
+  Transm_inst_cloud_free: 0.75
+  Obstacle Height: 0.4
+soil:
+  Saturated soil moisture content: data/processed/aligned/wcsat_topsoil_gapfilled_wgs84.tif
+  Saturated soil moisture content subsoil: data/processed/aligned/wcsat_subsoil_gapfilled_wgs84.tif
+  Residual soil moisture content: data/processed/aligned/wcres_topsoil_gapfilled_wgs84.tif
+  Residual soil moisture content subsoil: data/processed/aligned/wcres_subsoil_gapfilled_wgs84.tif
+  Field_Capacity: data/processed/aligned/wcpf2_topsoil_gapfilled_wgs84.tif
+  Wilting point: data/processed/aligned/wcpf4.2_topsoil_gapfilled_wgs84.tif
+  Depletion Factor (p FAO56): 0.5
+  LUEmax (2.5 for C3 crops, 4.5 for C4 crops): 2.5
+meteo_by_date:
+  '20190524':
+    Temp_Inst: data/processed/aligned/GLDAS_NOAH025_3H_A20190524_Tair_inst_interp.tif
+    Temp_24: data/processed/aligned/GLDAS_NOAH025_3H_A20190524_Tair_24_interp.tif
+    RH_inst: data/processed/aligned/GLDAS_NOAH025_3H_A20190524_Rh_inst_interp.tif
+    RH_24: data/processed/aligned/GLDAS_NOAH025_3H_A20190524_Rh_24_interp.tif
+    Wind_inst: data/processed/aligned/GLDAS_NOAH025_3H_A20190524_Wind_inst_interp.tif
+    Wind_24: data/processed/aligned/GLDAS_NOAH025_3H_A20190524_Wind_24_interp.tif
+    Rs_24: data/processed/aligned/GLDAS_NOAH025_3H_A20190524_SWdown_24_interp.tif
+    Rs_in_inst_cloud_free: data/processed/aligned/GLDAS_NOAH025_3H_A20190524_SWdown_inst_interp.tif
+  '20190727':
+    Temp_Inst: data/processed/aligned/GLDAS_NOAH025_3H_A20190727_Tair_inst_interp.tif
+    Temp_24: data/processed/aligned/GLDAS_NOAH025_3H_A20190727_Tair_24_interp.tif
+    RH_inst: data/processed/aligned/GLDAS_NOAH025_3H_A20190727_Rh_inst_interp.tif
+    RH_24: data/processed/aligned/GLDAS_NOAH025_3H_A20190727_Rh_24_interp.tif
+    Wind_inst: data/processed/aligned/GLDAS_NOAH025_3H_A20190727_Wind_inst_interp.tif
+    Wind_24: data/processed/aligned/GLDAS_NOAH025_3H_A20190727_Wind_24_interp.tif
+    Rs_24: data/processed/aligned/GLDAS_NOAH025_3H_A20190727_SWdown_24_interp.tif
+    Rs_in_inst_cloud_free: data/processed/aligned/GLDAS_NOAH025_3H_A20190727_SWdown_inst_interp.tif

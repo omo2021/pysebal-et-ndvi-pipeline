@@ -23,6 +23,31 @@ def load_config(config_path: str = "config/config.yaml") -> dict:
         return yaml.safe_load(f)
 
 
+def _resolve_input_val(val):
+    if val is None:
+        return None
+    if isinstance(val, str):
+        candidate = Path(val)
+        if candidate.exists():
+            return str(candidate.resolve())
+    return val
+
+
+def _apply_sheet_mapping(ws, row_num: int, mapping: dict) -> None:
+    if not mapping:
+        return
+    ws[f"A{row_num}"] = 1
+    headers = {
+        ws.cell(row=1, column=col).value: col
+        for col in range(1, ws.max_column + 1)
+        if ws.cell(row=1, column=col).value is not None
+    }
+    for key, raw_val in mapping.items():
+        col = headers.get(key)
+        if col is not None and raw_val is not None:
+            ws.cell(row=row_num, column=col, value=_resolve_input_val(raw_val))
+
+
 def build_run_excel(cfg: dict, row_num: int = 2) -> Path:
     lib_dir = Path(cfg["paths"]["pysebal_lib"])
     template_path = lib_dir / "test_data" / "InputEXCEL_v3_3_7_WIN.xlsx"
@@ -40,6 +65,13 @@ def build_run_excel(cfg: dict, row_num: int = 2) -> Path:
     image_name = pysebal_cfg.get("image_name", "LC08_L1TP_173049_20140310_20170425_01_T1")
 
     wb = openpyxl.load_workbook(run_excel)
+    meteo_merged = dict(cfg.get("meteo") or {})
+    parts = image_name.split("_")
+    scene_date = next((tok[:8] for tok in parts if len(tok) >= 8 and tok[:8].isdigit()), "")
+    by_date = (cfg.get("meteo_by_date") or {}).get(scene_date) or {}
+    meteo_merged.update(by_date)
+    _apply_sheet_mapping(wb["Meteo_Input"], row_num, meteo_merged)
+    _apply_sheet_mapping(wb["Soil_Input"], row_num, cfg.get("soil", {}))
     ws_gen = wb["General_Input"]
     ws_gen[f"A{row_num}"] = 1
     ws_gen[f"B{row_num}"] = input_folder
