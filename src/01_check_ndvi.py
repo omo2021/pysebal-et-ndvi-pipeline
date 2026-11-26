@@ -1,5 +1,18 @@
+import os
+import sys
 from pathlib import Path
 import numpy as np
+
+if sys.platform == "win32":
+    env_prefix = sys.prefix
+    for dll_dir in [
+        os.path.join(env_prefix, "Library", "bin"),
+        os.path.join(env_prefix, "Library", "mingw-w64", "bin"),
+        os.path.join(env_prefix, "Library", "usr", "bin"),
+    ]:
+        if os.path.isdir(dll_dir):
+            os.add_dll_directory(dll_dir)
+
 import rasterio
 import yaml
 
@@ -18,7 +31,8 @@ def compute_ndvi(red_path: Path, nir_path: Path, out_path: Path) -> None:
         nir = nir_src.read(1).astype("float32")
 
     denom = nir + red
-    ndvi = np.where(denom != 0, (nir - red) / denom, np.nan).astype("float32")
+    with np.errstate(divide="ignore", invalid="ignore"):
+        ndvi = np.where(denom != 0, (nir - red) / denom, np.nan).astype("float32")
 
     profile.update(dtype="float32", count=1, nodata=np.nan)
     out_path.parent.mkdir(parents=True, exist_ok=True)
