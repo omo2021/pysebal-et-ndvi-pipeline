@@ -7,6 +7,15 @@ A step-by-step Python workflow to calculate **Evapotranspiration (ET)**, **Bioma
 2. **PySEBAL Processing:** Per-image calculation of ET, NDVI, and Biomass.
 3. **Post-Processing:** Monthly maps, spatio-temporal gap-filling, and seasonal/annual aggregation.
 
+## Input Data & Sources
+
+| Input Dataset | Role in Pipeline | Spatial / Temporal Details | Source |
+| :--- | :--- | :--- | :--- |
+| **Landsat 8 Collection 2 Level-1 (`L1TP`)** | Surface reflectance, `NDVI`, thermal bands, and PySEBAL energy balance (`ETact_24`, `kc`, `Biomass_production`) | Path/row `168034`, 30 m (`2019-05-24` / DOY 144 & `2019-07-27` / DOY 208) | USGS EarthExplorer / NASA Earthdata |
+| **SRTM Digital Elevation Model (`srtm_30m.tif`)** | Elevation, slope/aspect, and terrain radiation/lapse-rate adjustments | ~30 m resolution, warped/aligned to `WGS 84 / UTM zone 38N` | NASA SRTM / USGS EarthExplorer |
+| **GLDAS Noah Land Surface Model** | Instantaneous and 24-hour air temperature (`Tair`), relative humidity (`Rh`), wind speed (`Wind`), and incoming shortwave radiation (`SWdown`) | 3-hourly / daily meteorological inputs interpolated per scene and warped to 30 m UTM Zone 38N | NASA GES DISC (`GLDAS_NOAH025_3H`) |
+| **Soil Moisture & Hydraulic Rasters** | Saturated (`wcsat`), residual (`wcres`), field capacity (`wcpf2`), and wilting point (`wcpf4.2`) topsoil/subsoil layers for root-zone and biomass modules | Gap-filled and aligned to the reference grid for PySEBAL soil/biomass modules | SoilGrids / derived soil hydraulic rasters |
+
 ## Repository Structure
 - `config/` – Configuration settings (study area, dates, paths)
 - `src/` – Python scripts for preprocessing, PySEBAL execution, and post-processing
