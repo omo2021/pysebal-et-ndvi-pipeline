@@ -124,3 +124,9 @@ Generated rasters are written locally under `data/outputs/pysebal_run/` (ignored
 | `Biomass_production` | `2019-05` / `2019-MAM` (`kg/ha/day`) | `-1.0296` | `52.1406` | `193.9844` |
 | `Biomass_production` | `2019-07` / `2019-JJA` (`kg/ha/day`) | `-1.0715` | `33.0789` | `227.9762` |
 | `Biomass_production` | `2019` Annual Mean (`kg/ha/day`) | `-0.9402` | `45.7867` | `196.8079` |
+
+### May vs. July 2019 Comparison Figures
+![Actual ET Comparison (2019)](docs/figures/etact_24_may_vs_jul_2019.png)
+![NDVI Comparison (2019)](docs/figures/ndvi_may_vs_jul_2019.png)
+![Crop Coefficient kc Comparison (2019)](docs/figures/kc_may_vs_jul_2019.png)
+![Daily Biomass Production Comparison (2019)](docs/figures/biomass_production_may_vs_jul_2019.png)
