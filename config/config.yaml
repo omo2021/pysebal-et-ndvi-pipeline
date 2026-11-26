@@ -8,6 +8,12 @@ paths:
   processed_data: "data/processed"
   outputs: "data/outputs"
 
+pysebal:
+  dem_path: "data/raw/srtm_30m.tif"
+  image_name: "LC08_L1TP_168034_20190524_20200828_02_T1"
+  landsat_number: 8
+  image_type: 1
+
 dates:
-  start_date: "2022-01-01"
-  end_date: "2022-01-31"
+  start_date: "2019-05-01"
+  end_date: "2019-07-31"
